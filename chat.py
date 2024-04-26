@@ -2,6 +2,7 @@ from google.cloud import bigquery
 from google.oauth2 import service_account
 import streamlit as st
 from openai import OpenAI
+import re
 
 
 client = OpenAI(api_key=st.secrets["openai_api_key"])
@@ -13,20 +14,22 @@ credentials = service_account.Credentials.from_service_account_info(
 bigquery_client = bigquery.Client(location="EU", credentials=credentials)
 
 # Constants
-EMBEDDING_MODEL = "text-embedding-ada-002"
 GPT_MODEL = "gpt-4-turbo"
 
-def remove_code_markers(text):
-    # Replace the specific substrings
-    clean_text = text.replace("```sql", "").replace("```", "")
-    return clean_text
+def extract_sql_content(text):
+    # Use a regular expression to find content within ```sql ``` blocks
+    match = re.search(r"```sql(.*?)```", text, re.DOTALL)
+    if match:
+        # Return the extracted content, stripping any leading or trailing whitespace
+        return match.group(1).strip()
+    return None  # Return None if no match is found
 
 def execute_query(query):
     if "nvalid" in query:  # Correct method to check for a substring
         return "no query result"
 
     # Clean the query to remove specific code markers
-    cleaned_query = remove_code_markers(query)
+    cleaned_query = extract_sql_content(query)
 
     # Debug print statement to show the cleaned query
     print(cleaned_query)
@@ -46,7 +49,7 @@ def execute_query(query):
 # Streamlit UI
 st.title("Ask your data")
 
-user_input = st.text_input("Din fråga?", key="user_input")
+user_input = st.text_area("Din fråga?", key="user_input")
 if user_input:
     
     
