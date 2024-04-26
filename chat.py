@@ -53,13 +53,14 @@ if user_input:
     # Prepare the prompt for GPT-4 in Swedish
     instructions_prompt = f"""
     You have a BigQuery table named `dnb_ab_falkenberg` in the dataset `dnb_data`.
-    The table contains information about companies, including `foretag` (company name), `omsattning`(in ksek), `anstallda`, and `bransch_grov` and  `bokslutsar`(string. eg. '2021').
-    Write an executable SQL query to retrieve the full order based on the given question:
+    The table contains information about companies, including `foretag` (company name), `omsattning`(in thousand sek), `anstallda`, and `bransch_grov` and  `bokslutsar`(string. eg. '2022').
+    Write an executable SQL query to retrieve the information based on the given question:
     {user_input}
 
     Default to latest year 2022. 
-    Reply with executable SQL.
+    
     If the given input is an invalid question, reply: "Invalid question given the data"
+    Expexted output: executable SQL.
     ```
 
     """
