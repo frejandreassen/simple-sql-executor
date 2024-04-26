@@ -3,3 +3,4 @@ google-auth
 streamlit
 openai
 pandas
+db-dtypes
