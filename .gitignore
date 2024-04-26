@@ -1,0 +1,63 @@
+# Python-related
+*.pyc
+*.pyo
+*.egg-info/
+__pycache__/
+*.egg
+*.log
+*.sqlite
+
+# Directories
+*.idea/
+.vscode/
+__pycache__/
+*.egg-info/
+*.egg
+*.log
+*.sqlite
+*.pyc
+
+# macOS-specific
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# virtualenv
+venv/
+*.venv/
+ENV/
+
+# PyCharm
+.idea/
+
+# Jupyter notebooks
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+
+
+# Streamlit related
+.streamlit/secrets.toml
+update_bigQuery/.streamlit/secrets.toml
+pages/.streamlit/secrets.toml
+.streamlit
+
