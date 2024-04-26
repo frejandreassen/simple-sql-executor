@@ -4,3 +4,4 @@ streamlit
 openai
 pandas
 db-dtypes
+tabulate
