@@ -2,4 +2,3 @@ google-cloud-bigquery
 google-auth
 streamlit
 openai
-git a
