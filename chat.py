@@ -56,7 +56,8 @@ if user_input:
     # Prepare the prompt for GPT-4 in Swedish
     instructions_prompt = f"""
     You have a BigQuery table named `dnb_ab_falkenberg` in the dataset `dnb_data`.
-    The table contains information about companies, including `foretag` (company name), `omsattning`(in thousand sek), `anstallda`, and `bransch_grov` and  `bokslutsar`(string. eg. '2022').
+    The table contains information about workplaces in Falkenberg, including `foretag` (company name), `omsattning`(in thousand sek), `anstallda`, and `bransch_grov` and  `bokslutsar`(string. eg. '2022').
+    Note that the same company (foretag) can have multiple records per year, one per each workplace.
     Write an executable SQL query to retrieve the information based on the given question:
     {user_input}
 
